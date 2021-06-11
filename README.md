@@ -5,13 +5,13 @@ This project contains site specific component for the Person package used by the
 # installation
 This project is downloaded using composer
 ```
-composer require gla/accelerator_person_lgov_package
+composer require gla/accelerator-person-lgov-package
 ```
 
 ```
    {
        "require": {
-           "gla/accelerator_person_lgov_package": "^1.0"
+           "gla/accelerator-person-lgov-package": "^1.0"
        }
    } 
 ```
