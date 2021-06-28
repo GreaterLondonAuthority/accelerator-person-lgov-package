@@ -12,6 +12,9 @@ function gla_person_install($is_syncing) {
   foreach(_gla_person_get_default_role_types() as $label) {
     _gla_person_create_term($label, 'role_type');
   }
+  foreach (_gla_person_get_default_constituency_types() as $label) {
+    _gla_person_create_term($label, 'constituency');
+  }
 }
 
 /**
@@ -61,5 +64,25 @@ function _gla_person_get_default_role_types() {
     'Official Spokesperson',
     'Head of Service',
     'Chief Executive',
+  ];
+}
+
+function _gla_person_get_default_constituency_types() {
+  return [
+    'Barking & Dagenham, City of London, Newham, Tower Hamlets',
+    'Barnet and Camden',
+    'Bexley and Bromley',
+    'Brent and Harrow',
+    'Croydon and Sutton',
+    'Ealing and Hillingdon',
+    'Enfield and Haringey',
+    'Greenwich and Lewisham',
+    'Hackney, Islington and Waltham Forest',
+    'Hammersmith & Fulham, Kensington and Chelsea, City of Westminster',
+    'Havering and Redbridge',
+    'Hounslow, Kingston upon Thames and Richmond upon Thames',
+    'Lambeth and Southwark',
+    'Merton and Wandsworth',
+    'Londonwide',
   ];
 }
