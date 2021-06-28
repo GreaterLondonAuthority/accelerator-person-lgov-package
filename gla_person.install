@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Install hooks relating the the GLA Person node.
+ */
+
+/**
+ * Implements hook_install()
+ */
+function gla_person_install($is_syncing) {
+  $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+
+  foreach(_gla_person_get_default_role_types() as $label) {
+    $values = [
+      'name' => $label,
+      'vid' => 'role_type',
+    ];
+    if (!$manager->loadByProperties($values)) {
+      $term = $manager->create($values);
+
+      try {
+        $term->save();
+      }
+      catch (Exception $e) {
+        watchdog_exception($e);
+      }
+    }
+  }
+}
+
+/**
+ * Helper to return the role types.
+ *
+ * @return string[]
+ *   And array of role type names.
+ */
+function _gla_person_get_default_role_types() {
+  return [
+    'Assembly Member',
+    'Mayoral Special Appointment',
+    'Deputy Mayor',
+    'Executive Director',
+    'Mayoral Advisor',
+    'Mayor',
+    'Assistant Director',
+    'Official Spokesperson',
+    'Head of Service',
+    'Chief Executive',
+  ];
+}
