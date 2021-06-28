@@ -1,0 +1,14 @@
+uuid: e09cd914-6f54-4d1b-b396-6e36f8e018b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.constituency
+id: taxonomy_vocabulary_constituency
+entity_type_id: taxonomy_vocabulary
+entity_id: constituency
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied
