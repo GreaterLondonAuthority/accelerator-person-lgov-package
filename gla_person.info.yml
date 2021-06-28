@@ -4,4 +4,4 @@ description: 'Provides a person content type and related content.'
 core_version_requirement: ^8.8 || ^9
 package: Custom
 dependencies:
-  - taxonomy
+  - rabbit_hole:rh_taxonomy

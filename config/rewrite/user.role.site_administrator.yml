@@ -1,0 +1,7 @@
+permissions:
+  - 'access taxonomy overview'
+  - 'administer permissions'
+  - 'create terms in role_type'
+  - 'delete terms in role_type'
+  - 'edit terms in role_type'
+  - 'rabbit hole bypass taxonomy_term'
