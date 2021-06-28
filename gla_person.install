@@ -23,7 +23,7 @@ function gla_person_install($is_syncing) {
         $term->save();
       }
       catch (Exception $e) {
-        watchdog_exception($e);
+        watchdog_exception('error', $e);
       }
     }
   }
