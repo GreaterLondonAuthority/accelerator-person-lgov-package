@@ -9,23 +9,37 @@
  * Implements hook_install()
  */
 function gla_person_install($is_syncing) {
-  $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
-
   foreach(_gla_person_get_default_role_types() as $label) {
-    $values = [
-      'name' => $label,
-      'vid' => 'role_type',
-    ];
+    _gla_person_create_term($label, 'role_type');
+  }
+}
+
+/**
+ * Helper to check if a term exists and if not create it.
+ *
+ * @param string $label
+ *   The term label.
+ * @param string $vocabulary
+ *   The term vocabulary machine name.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function _gla_person_create_term(string $label, string $vocabulary) {
+  $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $values = [
+    'name' => $label,
+    'vid' => $vocabulary,
+  ];
+
+  try {
     if (!$manager->loadByProperties($values)) {
       $term = $manager->create($values);
-
-      try {
-        $term->save();
-      }
-      catch (Exception $e) {
-        watchdog_exception('error', $e);
-      }
+      $term->save();
     }
+  }
+  catch (Exception $e) {
+    watchdog_exception('error', $e);
   }
 }
 
