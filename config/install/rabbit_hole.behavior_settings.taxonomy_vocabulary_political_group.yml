@@ -1,0 +1,14 @@
+uuid: 4bb3400f-325f-418c-813e-7ef0a75caa88
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.political_group
+id: taxonomy_vocabulary_political_group
+entity_type_id: taxonomy_vocabulary
+entity_id: political_group
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

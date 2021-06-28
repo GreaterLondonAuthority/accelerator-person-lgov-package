@@ -1,0 +1,8 @@
+uuid: 417f1024-7792-4610-b43e-7b01205dfb57
+langcode: en
+status: true
+dependencies: {  }
+name: 'Political Group'
+vid: political_group
+description: ''
+weight: 0
