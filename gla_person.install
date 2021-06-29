@@ -9,12 +9,18 @@
  * Implements hook_install()
  */
 function gla_person_install($is_syncing) {
+
+  // Create a new term for each label requested in DERP-352.
   foreach(_gla_person_get_default_role_types() as $label) {
     _gla_person_create_term($label, 'role_type');
   }
+
+  // Create a new term for each label requested in DERP-353.
   foreach (_gla_person_get_default_constituency_types() as $label) {
     _gla_person_create_term($label, 'constituency');
   }
+
+  // Create a new term for each label requested in DERP-354.
   foreach (_gla_person_get_default_political_group_types() as $label) {
     _gla_person_create_term($label, 'political_group');
   }
@@ -39,6 +45,8 @@ function _gla_person_create_term(string $label, string $vocabulary) {
   ];
 
   try {
+
+    // If a term doesn't already exist with this name, create it.
     if (!$manager->loadByProperties($values)) {
       $term = $manager->create($values);
       $term->save();
