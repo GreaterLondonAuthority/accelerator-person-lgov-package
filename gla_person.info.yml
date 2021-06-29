@@ -1,0 +1,7 @@
+name: 'Person'
+type: module
+description: 'Provides a person content type and related content.'
+core_version_requirement: ^8.8 || ^9
+package: Custom
+dependencies:
+  - rabbit_hole:rh_taxonomy

@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @file
+ * Install hooks relating the the GLA Person node.
+ */
+
+/**
+ * Implements hook_install()
+ */
+function gla_person_install($is_syncing) {
+
+  // Create a new term for each label requested in DERP-352.
+  foreach(_gla_person_get_default_role_types() as $label) {
+    _gla_person_create_term($label, 'role_type');
+  }
+
+  // Create a new term for each label requested in DERP-353.
+  foreach (_gla_person_get_default_constituency_types() as $label) {
+    _gla_person_create_term($label, 'constituency');
+  }
+
+  // Create a new term for each label requested in DERP-354.
+  foreach (_gla_person_get_default_political_group_types() as $label) {
+    _gla_person_create_term($label, 'political_group');
+  }
+}
+
+/**
+ * Helper to check if a term exists and if not create it.
+ *
+ * @param string $label
+ *   The term label.
+ * @param string $vocabulary
+ *   The term vocabulary machine name.
+ *
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function _gla_person_create_term(string $label, string $vocabulary) {
+  $manager = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+  $values = [
+    'name' => $label,
+    'vid' => $vocabulary,
+  ];
+
+  try {
+
+    // If a term doesn't already exist with this name, create it.
+    if (!$manager->loadByProperties($values)) {
+      $term = $manager->create($values);
+      $term->save();
+    }
+  }
+  catch (Exception $e) {
+    watchdog_exception('error', $e);
+  }
+}
+
+/**
+ * Helper to return the role types.
+ *
+ * @return string[]
+ *   And array of role type names.
+ */
+function _gla_person_get_default_role_types() {
+  return [
+    'Assembly Member',
+    'Mayoral Special Appointment',
+    'Deputy Mayor',
+    'Executive Director',
+    'Mayoral Advisor',
+    'Mayor',
+    'Assistant Director',
+    'Official Spokesperson',
+    'Head of Service',
+    'Chief Executive',
+  ];
+}
+
+/**
+ * Helper to return the constituency types.
+ *
+ * @return string[]
+ *   An array of constituency type labels.
+ */
+function _gla_person_get_default_constituency_types() {
+  return [
+    'Barking & Dagenham, City of London, Newham, Tower Hamlets',
+    'Barnet and Camden',
+    'Bexley and Bromley',
+    'Brent and Harrow',
+    'Croydon and Sutton',
+    'Ealing and Hillingdon',
+    'Enfield and Haringey',
+    'Greenwich and Lewisham',
+    'Hackney, Islington and Waltham Forest',
+    'Hammersmith & Fulham, Kensington and Chelsea, City of Westminster',
+    'Havering and Redbridge',
+    'Hounslow, Kingston upon Thames and Richmond upon Thames',
+    'Lambeth and Southwark',
+    'Merton and Wandsworth',
+    'Londonwide',
+  ];
+}
+
+/**
+ * Helper to return the political group types.
+ *
+ * @return string[]
+ *   An array of political group labels.
+ */
+function _gla_person_get_default_political_group_types() {
+  return [
+    'Brexit Alliance',
+    'City Hall Greens',
+    'UK Independence Party (UKIP)',
+    'Labour Group',
+    'Liberal Democrat',
+    'GLA Conservatives',
+  ];
+}

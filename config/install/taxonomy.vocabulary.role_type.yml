@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Role Type'
+vid: role_type
+description: ''
+weight: 0

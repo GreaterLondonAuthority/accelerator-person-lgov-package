@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: Constituency
+vid: constituency
+description: ''
+weight: 0

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Political Group'
+vid: political_group
+description: ''
+weight: 0
