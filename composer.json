@@ -1,6 +1,6 @@
 {
     "name": "gla/accelerator-person-lgov-package",
-    "type": "drupal-custom-module",
+    "type": "drupal-module",
     "license": "OGL-3.0",
     "description": "Site specific person package used by the london.gov.uk instance of the GLA drupal accelerator"
 }
