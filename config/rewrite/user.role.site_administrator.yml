@@ -8,4 +8,5 @@ permissions:
   - 'delete terms in role_type'
   - 'edit terms in constituency'
   - 'edit terms in political_group'
+  - 'edit terms in role_type'
   - 'rabbit hole bypass taxonomy_term'
