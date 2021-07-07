@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.constituency
+  enforced:
+    module:
+      - gla_person
 id: taxonomy_vocabulary_constituency
 entity_type_id: taxonomy_vocabulary
 entity_id: constituency
