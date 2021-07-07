@@ -3,6 +3,9 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.role_type
+  enforced:
+    module:
+      - gla_person
 id: taxonomy_vocabulary_role_type
 entity_type_id: taxonomy_vocabulary
 entity_id: role_type

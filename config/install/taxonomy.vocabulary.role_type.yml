@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - gla_person
 name: 'Role Type'
 vid: role_type
 description: ''

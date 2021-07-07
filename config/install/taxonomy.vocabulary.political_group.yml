@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - gla_person
 name: 'Political Group'
 vid: political_group
 description: ''
