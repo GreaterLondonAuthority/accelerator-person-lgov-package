@@ -1,7 +1,15 @@
 {
     "name": "gla/accelerator-person-lgov-package",
     "type": "gla-estate-module",
+    "description": "Site specific person package used by the london.gov.uk instance of the GLA drupal accelerator",
     "license": "OGL-3.0",
-    "description": "Site specific person package used by the london.gov.uk instance of the GLA drupal accelerator"
+    "require-dev": {
+        "vijaycs85/drupal-quality-checker": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/lukewhitmore/drupal-quality-checker"
+        }
+    ]
 }
-
