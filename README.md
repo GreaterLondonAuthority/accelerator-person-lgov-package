@@ -1,3 +1,5 @@
+[![Drupal Code Quality](https://github.com/GreaterLondonAuthority/accelerator-person-lgov-package/actions/workflows/drupal-code-quality.yml/badge.svg)](https://github.com/GreaterLondonAuthority/accelerator-person-lgov-package/actions/workflows/drupal-code-quality.yml)
+
 # Accelerator person package
 
 This project contains site specific component for the Person package used by the london.gov.uk instance of the GLA drupal accelerator
